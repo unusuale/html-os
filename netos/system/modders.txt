@@ -1,0 +1,14 @@
+	It is NOT recommended to Mod Files here,
+	if you dont like my settings here	
+	do not import them in the
+	first lines of your html code
+	as described on the DEVELOPER DOCUMENTS.
+	Modding FILES here can break the whole
+	system, make the system unstable, or
+	mess up with the users data.
+
+	+----------------------------------------+
+
+	     HTML Operation System CoreFiles
+
+	+----------------------------------------+

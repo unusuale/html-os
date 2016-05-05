@@ -1,0 +1,79 @@
+<!--MODDING NOTE: I hardcoded the Styles - You'll do it the Android way (Changing the whole homescreen from 3rd party vendors-->
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>launcher</title> <!-- IT makes Debugging Easier by 100%-->
+<style>
+	body{
+	font-family:Roboto, sans-serif;
+	padding:0;margin:0; 
+	}
+	#cards
+	{
+ 
+    -webkit-align-content: center;
+    align-content: center;
+text-align:center;
+	}
+	img{width:54px;height:54px;}
+	.appCard:hover
+{
+	background:rgba(0,0,0,0.3);
+	transform:scale(1.3);
+}
+	.appCard:active
+{
+	background:rgba(0,0,0,0.6);
+	transform:scale(1.5);
+}
+	.appCard
+	{
+
+	color:white;
+     display:inline-block;
+ 	font-size:13px;
+	font-family:"Roboto Condensed";
+	width:54px;
+	height:70px;
+	transition: transform 0.2s;
+	margin:10px;
+	margin-bottom:16px;
+}
+a{text-decoration:none;color:white;}
+</style>
+
+</head>
+<!--RUN AS FAST AS POSSIBLE. HARD CODE PREINSTALLED APPS AND DONT PHP-THEM UP.
+(not sure if to use php or simply just run some ajax-js combo)
+-->
+<body>
+<br>
+<div id="cards">
+
+<div class="appCard" id="card0">
+<a href="javascript:parent.launchApp('FULL','meepo.php')">
+<img src="../../apps/files/icon.png"><br>Files
+</a>
+</div>
+<a href="javascript:parent.launchApp('SPLICE_MODE','apps/Calculator')">
+<div class="appCard" id="card1">
+<img src="../../apps/Calculator/icon.png"><br>Calculator
+</div>
+</a>
+<a href="javascript:var mp = prompt('Play Video (default:demo)','../../invoker/invoke');parent.launchApp('full', 'apps/videoplayer/?' + mp );">
+<div class="appCard" id="card2">
+<img src="../../defimg.ico"><br>VideoPlay
+</div>
+</a>
+<a href="javascript:parent.launchApp('FULL','apps/webpx')">
+<div class="appCard" id="card2">
+<img src="../../apps/webpx/TheWorld.png"><br>Browser
+</div>
+</a>
+</div>
+
+
+</div>
+</body>
+</html>

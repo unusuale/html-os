@@ -1,0 +1,176 @@
+<html>
+<head>
+htmlos alpha
+<script src="system/lib/jquery-1.6.2.min.js"></script>
+<script src="system/lib/jquery-ui-1.11.4/jquery-ui.js"></script>
+<link href="style/default/material.css"
+      rel="stylesheet">
+<!--TODO: Move to CSS file later and provide StyleSwitcher API-->
+<title>html-os rewritten hobbyOS</title>
+<style> 
+body{
+font-family: "Roboto";
+font-weight: 300;
+  background: url('lollipop.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:white;
+  padding:0;
+}
+.botbar{width:100%;position:fixed;bottom:0;left:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);z-index:1000;}
+.start-bb{padding:16px;background:black;border-style:none;color:white;box-sizing: border-box;}
+.startmenu{
+opacity:0.5;
+backdrop-filter:blur(10px);
+z-index:1000;
+width:320px;
+height:500px;
+position:fixed;
+left:0em;
+color:White;
+padding:1em;
+bottom:3em;
+animation: startin 0.6s;
+background:#000;
+}
+@keyframes startin
+{0%
+{transform:translateY(300%)
+}
+60%{transform:translateY(6%)}
+
+100%{transform:translateY(0%)}
+}
+h{width:100%;display:block;height:1px;background:#AAA;margin-top:1em;margin-bottom:1em;}
+.windows{-webkit-box-shadow: 0px 2px 12px 2px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 2px 12px 2px rgba(0,0,0,0.75);
+box-shadow: 0px 2px 12px 2px rgba(0,0,0,0.75);}
+.winTitleBar{position:relative;padding-left:8px;padding-top:4px}
+.notificationshade
+{
+position:fixed;
+right:0;
+bottom:3em;
+width:300px;
+border:black 1px solid;
+color:white;
+opacity:1;
+height:300px;
+}
+.ceiling_shade
+{
+width:100%;
+position:relative;
+z-index:998;
+background:white;
+color:black;
+padding:1em;
+box-shadow: 0px 2px 12px 2px rgba(0,0,0,0.75);
+}
+@keyframes radiance
+{
+from
+{
+transform:translateY(20px);opacity:0.5;}
+to{
+transform:translateY(0px);opacity:1;}
+}
+::-webkit-scrollbar
+{
+  width: 2x;  /* for vertical scrollbars */
+  height: 2px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
+}
+.notifs{padding:2px;
+width:calc(100% + 10px);
+height:230px;
+overflow-y:scroll;}
+.notif-cards{
+background:white;
+border-radius:4px;
+animation: radiance 0.3s;
+color:black;
+margin-top:1em;
+padding:1em;
+}
+</style>
+<script>
+ 
+ 
+
+function time_update()
+{	
+var d = new Date();
+var n = d.toDateString();
+	var timer = document.getElementById("Timer");
+	var inrt = timer.innerHTML;
+	var tube1 = n;
+	var fi =  (d.getHours()<10?'0':'') + d.getHours() + ":" + (d.getMinutes()<10?'0':'') + d.getMinutes();
+	timer.innerHTML = fi+'<br><span style="font-size:0.8em">'+ tube1 + '</span><br>';
+	
+}
+
+function doUpdaters()
+{
+setInterval(time_update,1000);
+px = document.getElementById("notifs");
+}
+
+function notify(payload)
+{
+ var IInitialState = px.innerHTML;
+ px.innerHTML = '<div class="notif-cards" >' + payload + ' </div>' + IInitialState;
+
+}
+//Notification Listener
+window.addEventListener('message', function(e) {
+notify(e.data);
+});
+
+</script>
+</head>
+
+<body onload="doUpdaters()">
+<script>
+  $(function() {
+    $( ".windows" ).draggable({ scroll: true });
+  });
+
+ 
+</script>
+<div class="desktop" id="dItems">
+	
+</div>
+<div class="startmenu"><span id="tips">Welcome, $USR1</span>
+<h></h>
+
+Apps
+</div>
+<div class="botbar"><button class="start-bb">START</button></div>
+<div class="windows" style="height:444px;top:4em;width:330px;border:none;background:white;color:black;position:fixed;right:3em;" id="windows">
+	<div class="window" id="win0">
+	<div class="winTitleBar" id="titlebar" style="background:#04B8D1">Calculator</div>
+	<iframe scrolling="YES" style="border:none;width:100%;height:calc(100% - 20px);overflow:hidden" src="apps/Calculator/"></iframe></div>
+</div>
+<div class="notificationshade">
+<div class="ceiling_shade" id="Timer">#TIME<br><span style="font-size:0.8em">#DATE</span><br></div>
+ 
+<div class="notifs" id="notifs">
+<div class="notif-cards">Title<br>Test</div>
+</div>
+</div>	
+ 
+
+</body>
+</html>
