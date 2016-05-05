@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<style>
+	body{font-family:"Roboto"; font-weight:300;padding:0;background:white;width:100%;height:100%;}
+	input[type=button],input[type=reset]{width:64;height:64;margin:4px;font-size:1.5em;font-weight:300;font-family:Roboto;border:none;background:transparent;color:inherit;}
+	</style>
+    <title>htmlos-calculador</title>
+</head>
+<body>
+    <form name="calculator" >
+<div style="background:#04B8D1;position:fixed;padding:4px;left:0;top:0;width:100%;">&nbsp;</div><br>
+	<input type="textfield" name="ans" value="" style="margin-left:4px;width:292px;height:48px;padding:1em;margin-bottom:8px;border:none;">
+	<div style="position:relative;left:-16;background:url('divide.png'); background-size:100% 100%;height:3px;width:calc(100% + 23px);z-index:5"></div>
+    <br>
+	<div style="background:#404040;position:relative;left:-22;width:calc(100% + 4px);padding-left:26px;top:-22px;z-index:4;color:white;">
+    <input type="button" value="1" onClick="document.calculator.ans.value+='1'">
+    <input type="button" value="2" onClick="document.calculator.ans.value+='2'">
+    <input type="button" value="3" onClick="document.calculator.ans.value+='3'">
+    <input type="button" value="+" onClick="document.calculator.ans.value+='+'">
+    <br>
+    <input type="button" value="4" onClick="document.calculator.ans.value+='4'">
+    <input type="button" value="5" onClick="document.calculator.ans.value+='5'">
+    <input type="button" value="6" onClick="document.calculator.ans.value+='6'">
+    <input type="button" value="-" onClick="document.calculator.ans.value+='-'">
+    <br>
+    <input type="button" value="7" onClick="document.calculator.ans.value+='7'">
+    <input type="button" value="8" onClick="document.calculator.ans.value+='8'">
+    <input type="button" value="9" onClick="document.calculator.ans.value+='9'">
+    <input type="button" value="*" onClick="document.calculator.ans.value+='*'">
+    <br>
+    <input type="button" value="0" onClick="document.calculator.ans.value+='0'">
+    <input type="reset" value="CLR">
+
+
+
+    <input type="button" value="=" onClick="
+
+try {
+document.calculator.ans.value=eval(document.calculator.ans.value)
+}
+catch(err) {
+window.top.postMessage('Calculator<br><span style=&quot;opacity:0.57&quot;>' + err +'</span>', '*')
+}
+">
+
+
+
+    <input type="button" value="/" onClick="document.calculator.ans.value+='/'">
+<br><br><br>
+<center> v &nbsp;&nbsp;&nbsp; ADVANCED &nbsp;&nbsp;&nbsp;	 v</center>
+<input type="button" value="Sqrt" onClick="document.calculator.ans.value+='Math.sqrt('">
+<input type="button" value="Cos" onClick="document.calculator.ans.value+='Math.cos('">
+<input type="button" value="Tan" onClick="document.calculator.ans.value+='Math.tan('">
+<input type="button" value="Sin" onClick="document.calculator.ans.value+='Math.sin('">
+<input type="button" value="Cos-1" onClick="document.calculator.ans.value+='Math.acos('">
+<input type="button" value="Tan-1" onClick="document.calculator.ans.value+='Math.atan('">
+<input type="button" value="Sin-1" onClick="document.calculator.ans.value+='Math.asin('">
+<input type="button" value="" onClick="">
+<input type="button" value="(" onClick="document.calculator.ans.value+='('">
+<input type="button" value=")" onClick="document.calculator.ans.value+=')'">
+<input type="button" value="Sin" onClick="document.calculator.ans.value+='Math.sin('">
+	</div>
+    </form>
+ <script>
+ 
+ setTimeout(function(){window.top.postMessage('Calculator<br><span style="opacity:0.57">Calculator Service is running</span>', '*')},1000);
+ </script>
+    </body>
+</html>
